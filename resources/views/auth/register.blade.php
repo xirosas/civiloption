@@ -8,12 +8,13 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
+
                         <div class="form-group{{ $errors->has('avatar') ? ' has-error' : '' }}">
                             <label for="avatar" class="col-md-4 control-label">Avatar</label>
                             <div class="col-md-6">
-                                <input id="avatar" type="file" class="form-control" name="avatar" value="{{ old('avatar') }}" required autofocus>
+                                <input id="avatar" type="file" class="form-control" name="avatar" autofocus>
 
                                 @if ($errors->has('avatar'))
                                     <span class="help-block">
