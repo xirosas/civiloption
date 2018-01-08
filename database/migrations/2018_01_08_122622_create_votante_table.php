@@ -25,7 +25,7 @@ class CreateVotanteTable extends Migration
             $table->integer('voto')->default(0);
             $table->integer('estado')->default(1);
             $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('user')->onDelete('cascade');  
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');  
             $table->integer('id_lider')->unsigned();
             $table->foreign('id_lider')->references('id')->on('lider')->onDelete('cascade');                          
             $table->engine = 'InnoDB';
