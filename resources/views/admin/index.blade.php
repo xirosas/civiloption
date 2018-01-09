@@ -22,7 +22,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Coordinadores</span>
-              <span class="info-box-number">90</span>
+              <span class="info-box-number">{{ $coordinador }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -35,7 +35,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Lideres</span>
-              <span class="info-box-number">41</span>
+              <span class="info-box-number">{{ $lider }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -48,11 +48,11 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-android-walk"></i></span>
+            <span class="info-box-icon bg-green"><i class="ion ion-ios-people"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Votantes</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-number">{{ $votante }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>

@@ -20,7 +20,6 @@ class LiderController extends Controller
     public function index(Request $request){
     	if($request){
     		$query=trim($request->get('searchText'));
-    		$user = Auth::user();
     		$lideres=DB::table('lider as l')
             ->join('coordinador as c','l.id_coordinador','=','c.id')
             ->select('l.id','l.cedula','l.nombre','l.apellido','l.telefono','l.direccion','c.apellido as apecoordinador','c.nombre as nomcoordinador','l.estado')
@@ -30,15 +29,14 @@ class LiderController extends Controller
     		->orderBy('l.cedula','asc')
     		->paginate(15);
     		$count = DB::table('lider')->where('estado','=','1')->count();
-    		return view('lider.index',["usuario"=>$user,"lideres"=>$lideres,"searchText"=>$query,"contador"=>$count]);
+    		return view('lider.index',["lideres"=>$lideres,"searchText"=>$query,"contador"=>$count]);
     	}
     }
 
      public function create(){
-     	$user = Auth::user();
      	$count = DB::table('lider')->where('estado','=','1')->count();
         $coordinadores=DB::table('coordinador')->where('estado','=','1')->get();
-    	return view('lider.create',["usuario"=>$user,"contador"=>$count,"coordinadores"=>$coordinadores]);
+    	return view('lider.create',["contador"=>$count,"coordinadores"=>$coordinadores]);
     }
 
     public function store (LiderFormRequest $request){
@@ -62,9 +60,8 @@ class LiderController extends Controller
         $coordinadores=DB::table('coordinador')
         ->where('estado','=','1')
         ->get();
-    	$user = Auth::user();
-     	$count = DB::table('lider')->where('estado','=','1')->count();
-    	return view("lider.edit",["lider"=>$lider,"coordinadores"=>$coordinadores,"usuario"=>$user,"contador"=>$count ]);
+    	$count = DB::table('lider')->where('estado','=','1')->count();
+    	return view("lider.edit",["lider"=>$lider,"coordinadores"=>$coordinadores,"contador"=>$count ]);
     }
 
     public function update(LiderFormRequest $request,$id){

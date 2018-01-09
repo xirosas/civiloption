@@ -5,6 +5,7 @@ namespace CivilOption\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use CivilOption\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $ContLider = DB::table('lider')->where('estado','=','1')->count();
+        $ContCoordinador = DB::table('coordinador')->where('estado','=','1')->count();
+        $ContVotante = DB::table('votante')->where('estado','=','1')->count();
+        return view('admin.index',["lider"=>$ContLider,"coordinador"=>$ContCoordinador,"votante"=>$ContVotante ]);
     }
 
 }
