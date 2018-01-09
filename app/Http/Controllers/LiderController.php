@@ -22,9 +22,11 @@ class LiderController extends Controller
     		$query=trim($request->get('searchText'));
     		$user = Auth::user();
     		$lideres=DB::table('lider as l')
-            ->join('coordinador as c','a.id_coordinador','=','c.id')
-            ->select('l.id','l.cedula','l.nombre','l.apellido','l.telefono','l.direccion','c.nombre as coordinador','l.estado')
+            ->join('coordinador as c','l.id_coordinador','=','c.id')
+            ->select('l.id','l.cedula','l.nombre','l.apellido','l.telefono','l.direccion','c.apellido as apecoordinador','c.nombre as nomcoordinador','l.estado')
             ->where('l.nombre','LIKE','%'.$query.'%')
+            ->orwhere('l.cedula','LIKE','%'.$query.'%')
+            ->orwhere('l.apellido','LIKE','%'.$query.'%')
     		->where('l.estado','=','1')
     		->orderBy('l.cedula','asc')
     		->paginate(15);
@@ -74,8 +76,7 @@ class LiderController extends Controller
     	$lider1->direccion=$request->get('direccion');
     	$lider1->telefono=$request->get('telefono');
     	$lider1->id_coordinador=$request->get('id_coordinador');
-    	$lider1->save();
-    	$coordinador1->update();
+    	$lider1->update();
     	return redirect('lider');
     }
 

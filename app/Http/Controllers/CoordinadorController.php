@@ -21,7 +21,10 @@ class CoordinadorController extends Controller
     	if($request){
     		$query=trim($request->get('searchText'));
     		$user = Auth::user();
-    		$coordinadores=DB::table('coordinador')->where('nombre','LIKE','%'.$query.'%')
+    		$coordinadores=DB::table('coordinador')
+            ->where('nombre','LIKE','%'.$query.'%')
+            ->orwhere('cedula','LIKE','%'.$query.'%')
+            ->orwhere('apellido','LIKE','%'.$query.'%')
     		->where('estado','=','1')
     		->orderBy('cedula','asc')
     		->paginate(15);

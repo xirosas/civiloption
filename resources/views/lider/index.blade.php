@@ -32,6 +32,7 @@
                 <th>Apellido</th>
                 <th>Telefono</th>
                 <th>Direccion</th>
+                <th>Coordinador</th>
               </thead>
               @foreach($lideres as $result)
               <tr>
@@ -40,6 +41,7 @@
                 <td>{{ $result->apellido }}</td>
                 <td>{{ $result->telefono }}</td>
                 <td>{{ $result->direccion }}</td>
+                <td>{{ $result->nomcoordinador }} {{ $result->apecoordinador }}</td>
                 <td>
                     <a href="{{ URL::action('LiderController@edit',$result->id) }}"><button class="btn btn-info">Editar</button></a>
                     <a href="" data-target="#modal-delete-{{ $result->id }}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
@@ -49,6 +51,7 @@
               @endforeach
             </table>
           </div>
+          {{ $lideres->render() }}
         </div>
       </div>
     </section>

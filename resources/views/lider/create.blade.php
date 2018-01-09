@@ -31,10 +31,10 @@
         	{!!Form::open(array('url'=>'lider','method'=>'POST','autocomplete'=>'off'))!!}
         	{!!Form::token()!!}
                 <div class="form-group">
-                    <label for="coordinador">Coordinador</label>
-                    <select name="coordinador">
-                        @foreach($coordinadores as $result)
-                            <option value="{{ $result->id }}">{{ $result->nombre }}</option>
+                    <label for="id_coordinador">Coordinador</label>
+                    <select name="id_coordinador" class="form-group">
+                        @foreach($coordinadores as $coor)
+                            <option value="{{ $coor->id }}">{{ $coor->cedula }} - {{ $coor->nombre }} {{ $coor->apellido }}</option>
                         @endforeach
                     </select> 
                 </div>
