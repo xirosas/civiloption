@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('contenido')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <img src="storage/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+            <img src="{{ asset(Storage::url(Auth::user()->avatar)) }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
             <h2>Perfil de {{ Auth::user()->name }}</h2>
             <form enctype="multipart/form-data" action="{{ url('/profile') }}" method="POST">
                 <label>Actualizar Imagen</label>

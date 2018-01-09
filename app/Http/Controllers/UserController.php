@@ -3,7 +3,9 @@
 namespace CivilOption\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\File;
 use CivilOption\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 
 class UserController extends Controller
@@ -16,7 +18,7 @@ class UserController extends Controller
 
     	// Handle the user upload of avatar
     	if($request->hasFile('avatar')){
-    		$avatar = $request->file('avatar')->store('avatars');
+    		$avatar = Storage::putFile('public',new File($request->file('avatar')));
 
     		$user = Auth::user();
     		$user->avatar = $avatar;
