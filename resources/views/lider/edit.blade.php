@@ -34,7 +34,11 @@
                     <label for="id_coordinador">Coordinador</label>
                     <select name="id_coordinador" class="form-group">
                         @foreach($coordinadores as $coor)
+                          @if($coor->id==$lider->id_coordinador)
+                            <option value="{{ $coor->id }}" selected>{{ $coor->cedula }} - {{ $coor->nombre }} {{ $coor->apellido }}</option>
+                          @else
                             <option value="{{ $coor->id }}">{{ $coor->cedula }} - {{ $coor->nombre }} {{ $coor->apellido }}</option>
+                          @endif
                         @endforeach
                     </select> 
                 </div>
