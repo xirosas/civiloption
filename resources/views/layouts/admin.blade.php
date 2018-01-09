@@ -125,8 +125,8 @@
         <li class="header">PANEL DE CONTROL</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ url('/coordinador') }}"><i class="fa fa-modx"></i> <span>Coordinadores</span></a></li>
-        <li><a href="#"><i class="fa fa-coffee"></i> <span>Lideres</span></a></li>
-        <li><a href="#"><i class="fa fa-ticket"></i> <span>Votantes</span></a></li>
+        <li><a href="{{ url('/lider') }}"><i class="fa fa-coffee"></i> <span>Lideres</span></a></li>
+        <li><a href="{{ url('/votante') }}"><i class="fa fa-ticket"></i> <span>Votantes</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span></span>
             <span class="pull-right-container">
