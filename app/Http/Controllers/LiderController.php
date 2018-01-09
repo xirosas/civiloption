@@ -24,10 +24,9 @@ class LiderController extends Controller
     		$lideres=DB::table('lider as l')
             ->join('coordinador as c','l.id_coordinador','=','c.id')
             ->select('l.id','l.cedula','l.nombre','l.apellido','l.telefono','l.direccion','c.apellido as apecoordinador','c.nombre as nomcoordinador','l.estado')
+            ->where('l.estado','=','1')
+            ->where('l.cedula','LIKE','%'.$query.'%')
             ->where('l.nombre','LIKE','%'.$query.'%')
-            ->orwhere('l.cedula','LIKE','%'.$query.'%')
-            ->orwhere('l.apellido','LIKE','%'.$query.'%')
-    		->where('l.estado','=','1')
     		->orderBy('l.cedula','asc')
     		->paginate(15);
     		$count = DB::table('lider')->where('estado','=','1')->count();
