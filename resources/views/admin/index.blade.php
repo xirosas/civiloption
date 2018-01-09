@@ -80,7 +80,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <p class="text-center">
-                    <strong>Ingresos: 1 Ene, 2018 - 30 Ene, 2018</strong>
+                    <strong>Ingresos: {{$votante+$lider+$coordinador}} Ene, 2018 - 30 Ene, 2018</strong>
                   </p>
 
                   <div class="chart">

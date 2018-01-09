@@ -21,6 +21,7 @@ Route::get('/admin', 'HomeController@index')->name('admin');
 
 Route::resource('coordinador','CoordinadorController');
 Route::resource('lider','LiderController');
+Route::resource('votante','VotanteController');
 //Route::resource('admin','AdminController');
 
 Route::get('profile', 'UserController@profile');
