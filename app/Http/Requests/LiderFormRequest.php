@@ -4,7 +4,7 @@ namespace CivilOption\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CoordinadorFormRequest extends FormRequest
+class LiderFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,6 +29,7 @@ class CoordinadorFormRequest extends FormRequest
             'cedula'=>'required|numeric',
             'direccion'=>'max:50',
             'telefono'=>'max:50',
+            'id_coordinador'=>'required',
         ];
     }
 }

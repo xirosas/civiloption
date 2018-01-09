@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <img src="{{ Storage::url($user->avatar) }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-            <h2>Perfil de {{ $user->name }}</h2>
+            <img src="storage/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+            <h2>Perfil de {{ Auth::user()->name }}</h2>
             <form enctype="multipart/form-data" action="{{ url('/profile') }}" method="POST">
                 <label>Actualizar Imagen</label>
                 <input type="file" name="avatar">

@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="{{asset('bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{asset('bower_components/Ionicons/css/ionicons.min.css')}}">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="{{asset('bower_components/jvectormap/jquery-jvectormap.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -60,18 +62,18 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{Storage::url($usuario->avatar)}}" class="user-image" alt="User Image">
+              <img src="{{Storage::url(Auth::user()->avatar)}}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{$usuario->name}}</span>
+              <span class="hidden-xs">{{Auth::user()->name}} {{Auth::user()->lastname}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{Storage::url($usuario->avatar)}}" class="img-circle" alt="User Image">
+                <img src="{{Storage::url(Auth::user()->avatar)}}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{$usuario->name}} {{$usuario->lastname}}
-                  <small>{{$usuario->email}}</small>
+                  {{Auth::user()->name}} {{Auth::user()->lastname}}
+                  <small>{{Auth::user()->email}}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -107,10 +109,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{Storage::url($usuario->avatar)}}" class="img-circle" alt="User Image">
+          <img src="{{Storage::url(Auth::user()->avatar)}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>{{$usuario->name}} {{$usuario->lastname}}</p>
+          <p>{{Auth::user()->name}} {{Auth::user()->lastname}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -245,6 +247,23 @@
 <script src="{{asset('bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+
+<script src="{{asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
+
+<script src="{{asset('bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+<!-- jvectormap  -->
+<script src="{{asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- SlimScroll -->
+<script src="{{asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{asset('bower_components/Chart.js/Chart.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
+
+<script src="{{asset('dist/js/demo.js')}}"></script>
+
+<script src="{{asset('js/main.js')}}"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
