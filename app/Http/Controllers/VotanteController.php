@@ -27,7 +27,7 @@ class VotanteController extends Controller
             ->select('v.id','v.cedula','v.nombre','v.apellido','v.telefono','v.ubicacion','l.nombre as nomlider','l.apellido as apelider','v.estado','u.name as nomusuario','u.lastname as apeusuario','v.mesa','v.puesto')
             ->where('v.estado','=','1')
             ->where('v.cedula','LIKE','%'.$query.'%')
-            ->where('v.nombre','LIKE','%'.$query.'%')
+            ->orwhere('v.nombre','LIKE','%'.$query.'%')
     		->orderBy('v.cedula','asc')
     		->paginate(15);
     		$count = DB::table('votante')->where('estado','=','1')->count();

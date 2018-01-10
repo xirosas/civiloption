@@ -34,7 +34,7 @@
                     <label for="id_lider">Lider</label>
                     <select name="id_lider" class="form-group">
                         @foreach($lideres as $lid)
-                          @if($lid->id==$lid->id_lider)
+                          @if($lid->id==$votante->id_lider)
                             <option value="{{ $lid->id }}" selected>{{ $lid->cedula }} - {{ $lid->nombre }} {{ $lid->apellido }}</option>
                           @else
                             <option value="{{ $lid->id }}">{{ $lid->cedula }} - {{ $lid->nombre }} {{ $lid->apellido }}</option>
