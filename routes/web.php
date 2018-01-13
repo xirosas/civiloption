@@ -26,3 +26,5 @@ Route::resource('votante','VotanteController');
 
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@update_avatar');
+
+Route::get('pdf', 'PdfController@totalVotantes');

@@ -80,7 +80,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <p class="text-center">
-                    <strong>Ingresos: {{$votante+$lider+$coordinador}} Ene, 2018 - 30 Ene, 2018</strong>
+                    <strong>Ingresos: {{$votante+$lider+$coordinador}} | 01 Ene, 2018 - 30 Ene, 2018</strong>
                   </p>
 
                   <div class="chart">
@@ -96,38 +96,38 @@
                   </p>
 
                   <div class="progress-group">
-                    <span class="progress-text">Votantes Inscritos</span>
-                    <span class="progress-number"><b>160</b>/200</span>
+                    <span class="progress-text">Votantes Aceptados</span>
+                    <span class="progress-number"><b>{{$votante}}</b>/{{$totalVotante}}</span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                      <div class="progress-bar progress-bar-aqua" style="width: {{ $porcentajeVotante }}"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
                     <span class="progress-text">Coordinadores</span>
-                    <span class="progress-number"><b>310</b>/400</span>
+                    <span class="progress-number"><b>{{ $coordinador}}</b>/{{ $coordinador}}</span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-red" style="width: 80%"></div>
+                      <div class="progress-bar progress-bar-red" style="width: "></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
                     <span class="progress-text">Lideres</span>
-                    <span class="progress-number"><b>480</b>/800</span>
+                    <span class="progress-number"><b>{{ $lider}}</b>/{{ $lider}}</span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                      <div class="progress-bar progress-bar-green" style="width: "></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->
                   <div class="progress-group">
                     <span class="progress-text">Total Municipal</span>
-                    <span class="progress-number"><b>250</b>/500</span>
+                    <span class="progress-number"><b>{{$votante+$lider+$coordinador}}</b>/189719</span>
 
                     <div class="progress sm">
-                      <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
+                      <div class="progress-bar progress-bar-yellow" style="width:{{ $porcentajeTotal }}"></div>
                     </div>
                   </div>
                   <!-- /.progress-group -->

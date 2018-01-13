@@ -27,10 +27,11 @@ class VotanteFormRequest extends FormRequest
             'nombre'=>'required|max:50',
             'apellido'=>'required|max:50',
             'cedula'=>'required|numeric',
-            'direccion'=>'max:50',
+            'id_puesto'=>'required|numeric',
             'telefono'=>'max:50',
             'id_lider'=>'required',
             'id_user'=>'numeric',
+            'estado'=>'required|numeric',
         ];
     }
 }

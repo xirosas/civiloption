@@ -13,10 +13,10 @@ class Votante extends Model
     public $timestamps=false;
 
     protected $fillable=[
-    	'cedula','nombre','apellido','direccion','telefono','id_lider', 'id_user',
+    	'cedula','nombre','apellido','id_puesto','telefono','id_lider', 'id_user','estado',
     ];
 
     protected $hidden =[
-    	'estado', 'id',
+    	 'id',
     ];
 }

@@ -64,7 +64,7 @@
               <!-- The user image in the navbar-->
               <img src="{{ asset(Storage::url(Auth::user()->avatar)) }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">{{Auth::user()->name}} {{Auth::user()->lastname}}</span>
+              <span class="hidden-xs"><strong>{{Auth::user()->name}} {{Auth::user()->lastname}}</strong></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -72,7 +72,7 @@
                 <img src="{{ asset(Storage::url(Auth::user()->avatar)) }}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{Auth::user()->name}} {{Auth::user()->lastname}}
+                  <strong>{{Auth::user()->name}} {{Auth::user()->lastname}}</strong>
                   <small>{{Auth::user()->email}}</small>
                 </p>
               </li>

@@ -27,7 +27,7 @@ class CoordinadorController extends Controller
             ->orwhere('apellido','LIKE','%'.$query.'%')
     		->where('estado','=','1')
     		->orderBy('cedula','asc')
-    		->paginate(15);
+    		->paginate(10);
     		$count = DB::table('coordinador')->where('estado','=','1')->count();
     		return view('coordinador.index',["usuario"=>$user,"coordinadores"=>$coordinadores,"searchText"=>$query,"contador"=>$count]);
     	}

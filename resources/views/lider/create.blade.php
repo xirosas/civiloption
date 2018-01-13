@@ -15,58 +15,55 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        	<h3>Nuevo Lider</h3>
-        	@if (count($errors)>0)
-        	<div class="alert alert-danger">
-        		<ul>
-        			@foreach($errors->all() as $error)
-        			<li>{{$error}}</li>
-        			@endforeach
-        		</ul>
-        	</div>
-        	@endif
-
-        	{!!Form::open(array('url'=>'lider','method'=>'POST','autocomplete'=>'off'))!!}
-        	{!!Form::token()!!}
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            	<h3>Nuevo Lider</h3>
+            	@if (count($errors)>0)
+            	<div class="alert alert-danger">
+            		<ul>
+            			@foreach($errors->all() as $error)
+            			<li>{{$error}}</li>
+            			@endforeach
+            		</ul>
+            	</div>
+            	@endif
+            	{!!Form::open(array('url'=>'lider','method'=>'POST','autocomplete'=>'off'))!!}
+            	{!!Form::token()!!}
+                    <div class="form-group">
+                        <label for="id_coordinador">Coordinador</label>
+                        <select name="id_coordinador" class="form-control">
+                            @foreach($coordinadores as $coor)
+                                <option value="{{ $coor->id }}">{{ $coor->cedula }} - {{ $coor->nombre }} {{ $coor->apellido }}</option>
+                            @endforeach
+                        </select> 
+                    </div>
+            		<div class="form-group">
+            			<label for="cedula">Cedula</label>
+            			<input type="number" name="cedula" class="form-control">
+            		</div>
+            		<div class="form-group">
+            			<label for="nombre">Nombre</label>
+            			<input type="text" name="nombre" class="form-control" placeholder="Nombre..." onkeydown="upperCaseF(this)">
+            		</div>
+            		<div class="form-group">
+            			<label for="apellido">Apellido</label>
+            			<input type="text" name="apellido" class="form-control" placeholder="Apellido..." onkeydown="upperCaseF(this)">
+            		</div>
+            		<div class="form-group">
+            			<label for="direccion">Direccion</label>
+            			<input type="text" name="direccion" class="form-control" placeholder="Direccion..." onkeydown="upperCaseF(this)">
+            		</div>
+            		<div class="form-group">
+            			<label for="telefono">Telefono</label>
+            			<input type="text" name="telefono" class="form-control" placeholder="Telefono..." onkeydown="upperCaseF(this)">
+            		</div>
                 <div class="form-group">
-                    <label for="id_coordinador">Coordinador</label>
-                    <select name="id_coordinador" class="form-group">
-                        @foreach($coordinadores as $coor)
-                            <option value="{{ $coor->id }}">{{ $coor->cedula }} - {{ $coor->nombre }} {{ $coor->apellido }}</option>
-                        @endforeach
-                    </select> 
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button class="btn btn-danger" type="reset">Cancelar</button>
                 </div>
-        		<div class="form-group">
-        			<label for="cedula">Cedula</label>
-        			<input type="number" name="cedula" class="form-control">
-        		</div>
-        		<div class="form-group">
-        			<label for="nombre">Nombre</label>
-        			<input type="text" name="nombre" class="form-control" placeholder="Nombre..." onkeydown="upperCaseF(this)">
-        		</div>
-        		<div class="form-group">
-        			<label for="apellido">Apellido</label>
-        			<input type="text" name="apellido" class="form-control" placeholder="Apellido..." onkeydown="upperCaseF(this)">
-        		</div>
-        		<div class="form-group">
-        			<label for="direccion">Direccion</label>
-        			<input type="text" name="direccion" class="form-control" placeholder="Direccion..." onkeydown="upperCaseF(this)">
-        		</div>
-        		<div class="form-group">
-        			<label for="telefono">Telefono</label>
-        			<input type="text" name="telefono" class="form-control" placeholder="Telefono..." onkeydown="upperCaseF(this)">
-        		</div>
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit">Guardar</button>
-                <button class="btn btn-danger" type="reset">Cancelar</button>
-            </div>
-        	{!!Form::close()!!}
+            	{!!Form::close()!!}
+            </div>      	
         </div>
-      	
-      </div>
-
     </section>
     <!-- /.content -->
 @stop

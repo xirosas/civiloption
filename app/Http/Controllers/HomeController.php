@@ -28,8 +28,11 @@ class HomeController extends Controller
     {
         $ContLider = DB::table('lider')->where('estado','=','1')->count();
         $ContCoordinador = DB::table('coordinador')->where('estado','=','1')->count();
+        $ContTotalVotante = DB::table('votante')->count();
         $ContVotante = DB::table('votante')->where('estado','=','1')->count();
-        return view('admin.index',["lider"=>$ContLider,"coordinador"=>$ContCoordinador,"votante"=>$ContVotante ]);
+        $porcentajeVotante = ($ContVotante*100)/$ContTotalVotante . '%';
+        $porcentajeTotal = ($ContTotalVotante*100)/189719 . '%';
+        return view('admin.index',["lider"=>$ContLider,"coordinador"=>$ContCoordinador,"votante"=>$ContVotante,"totalVotante"=>$ContTotalVotante, 'porcentajeVotante'=>$porcentajeVotante,'porcentajeTotal'=>$porcentajeTotal]);
     }
 
 }

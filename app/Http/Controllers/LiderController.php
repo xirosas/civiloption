@@ -27,7 +27,7 @@ class LiderController extends Controller
             ->where('l.cedula','LIKE','%'.$query.'%')
             ->where('l.nombre','LIKE','%'.$query.'%')
     		->orderBy('l.cedula','asc')
-    		->paginate(15);
+    		->paginate(10);
     		$count = DB::table('lider')->where('estado','=','1')->count();
     		return view('lider.index',["lideres"=>$lideres,"searchText"=>$query,"contador"=>$count]);
     	}

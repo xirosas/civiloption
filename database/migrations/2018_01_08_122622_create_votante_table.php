@@ -19,9 +19,7 @@ class CreateVotanteTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('telefono');
-            $table->string('ubicacion');
-            $table->string('mesa');
-            $table->string('puesto');
+            $table->string('id_puesto');
             $table->integer('voto')->default(0);
             $table->integer('estado')->default(1);
             $table->integer('id_user')->unsigned();
