@@ -54,8 +54,11 @@
                   <th scope="col">Nombre <i class="fa fa-fw fa-sort pull-right"></i></th>
                   <th scope="col">Apellido <i class="fa fa-fw fa-sort pull-right"></i></th>
                   <th scope="col">Telefono <i class="fa fa-fw fa-sort pull-right"></i></th>
-                  <th scope="col">Votacion <i class="fa fa-fw fa-sort pull-right"></i></th>
+                  <th scope="col">Barrio <i class="fa fa-fw fa-sort pull-right"></i></th>
+                  <th scope="col">Puesto <i class="fa fa-fw fa-sort pull-right"></i></th>
                   <th scope="col">Lider <i class="fa fa-fw fa-sort pull-right"></i></th>
+                  <th scope="col">Tipo <i class="fa fa-fw fa-sort pull-right"></i></th>
+                  <th><i class="fa fa-cogs"></i></th>
                 </thead>
                 @foreach($data as $result)
                 <tr>
@@ -63,8 +66,18 @@
                   <td>{{ $result->nombre }}</td>
                   <td>{{ $result->apellido }}</td>
                   <td>{{ $result->telefono }}</td>
-                  <td>{{ $result->ubicacion }} - {{ $result->puesto }} - {{ $result->mesa }}</td>
+                  <td>{{ $result->nombarrio }}</td>
+                  <td>{{ $result->puesto }}</td>
                   <td>{{ $result->nomlider }} {{ $result->apelider }}</td>
+                    @if($result->estado==1)
+                      <td style="background: green;">ACTIVO</td>
+                    @elseif($result->estado==2)
+                      <td style="background: yellow;">MOTO</td>
+                    @elseif($result->estado==3)
+                      <td style="background: blue;">VEHICULO</td>
+                    @elseif($result->estado==4)
+                      <td style="background: red;">RECHAZADO</td>
+                    @endif
                 </tr>
                 @endforeach
               </table>
