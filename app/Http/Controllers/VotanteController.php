@@ -39,7 +39,7 @@ class VotanteController extends Controller
 
      public function create(){
      	$count = DB::table('votante')->where('estado','=','1')->count();
-        $lideres=DB::table('lider')->where('estado','=','1')->get();
+        $lideres=DB::table('lider')->where('estado','=','1')->orderBy('nombre','asc')->get();
         $barrios=DB::table('barrio')->orderBy('nombre','asc')->get();
         $puestos=DB::table('puesto')->orderBy('nombrepuesto','asc')->get();
     	return view('votante.create',["contador"=>$count,"lideres"=>$lideres,"barrios"=>$barrios,"puestos"=>$puestos]);
@@ -66,9 +66,7 @@ class VotanteController extends Controller
 
     public function edit($id){
         $votante=votante::findOrFail($id);
-        $lideres=DB::table('lider')
-        ->where('estado','=','1')
-        ->get();
+        $lideres=DB::table('lider')->where('estado','=','1')->orderBy('nombre','asc')->get();
         $barrios=DB::table('barrio')->orderBy('nombre','asc')->get();
         $puestos=DB::table('puesto')->orderBy('nombrepuesto','asc')->get();
     	$count = DB::table('votante')->where('estado','=','1')->count();

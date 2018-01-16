@@ -39,7 +39,7 @@
                             <label for="id_lider">Lider</label>
                             <select name="id_lider" class="form-control">
                                 @foreach($lideres as $lid)
-                                    <option value="{{ $lid->id }}">{{ $lid->cedula }} - {{ $lid->nombre }} {{ $lid->apellido }}</option>
+                                    <option value="{{ $lid->id }}">{{ $lid->nombre }} {{ $lid->apellido }} - {{ $lid->cedula }}</option>
                                 @endforeach
                             </select> 
                         </div>

@@ -33,7 +33,7 @@
                         <label for="id_coordinador">Coordinador</label>
                         <select name="id_coordinador" class="form-control">
                             @foreach($coordinadores as $coor)
-                                <option value="{{ $coor->id }}">{{ $coor->cedula }} - {{ $coor->nombre }} {{ $coor->apellido }}</option>
+                                <option value="{{ $coor->id }}">{{ $coor->nombre }} {{ $coor->apellido }} - {{ $coor->cedula }}</option>
                             @endforeach
                         </select> 
                     </div>

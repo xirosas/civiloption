@@ -25,7 +25,7 @@ class LiderController extends Controller
             ->select('l.id','l.cedula','l.nombre','l.apellido','l.telefono','l.direccion','c.apellido as apecoordinador','c.nombre as nomcoordinador','l.estado')
             ->where('l.estado','=','1')
             ->where('l.cedula','LIKE','%'.$query.'%')
-            ->where('l.nombre','LIKE','%'.$query.'%')
+            ->orwhere('l.nombre','LIKE','%'.$query.'%')
     		->orderBy('l.cedula','asc')
     		->paginate(10);
     		$count = DB::table('lider')->where('estado','=','1')->count();
@@ -35,7 +35,7 @@ class LiderController extends Controller
 
      public function create(){
      	$count = DB::table('lider')->where('estado','=','1')->count();
-        $coordinadores=DB::table('coordinador')->where('estado','=','1')->get();
+        $coordinadores=DB::table('coordinador')->where('estado','=','1')->orderBy('nombre','asc')->get();
     	return view('lider.create',["contador"=>$count,"coordinadores"=>$coordinadores]);
     }
 
@@ -57,9 +57,7 @@ class LiderController extends Controller
 
     public function edit($id){
         $lider=lider::findOrFail($id);
-        $coordinadores=DB::table('coordinador')
-        ->where('estado','=','1')
-        ->get();
+        $coordinadores=DB::table('coordinador')->where('estado','=','1')->orderBy('nombre','asc')->get();
     	$count = DB::table('lider')->where('estado','=','1')->count();
     	return view("lider.edit",["lider"=>$lider,"coordinadores"=>$coordinadores,"contador"=>$count ]);
     }
