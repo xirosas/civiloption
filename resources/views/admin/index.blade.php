@@ -195,14 +195,13 @@
 
         <div class="col-md-4">
           <!-- Info Boxes Style 2 -->
-          @foreach($usuarios as $usu)
+          
             <div class="info-box bg-yellow">
               <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">{{ $usu->name }} {{ $usu->lastname }}</span>
+                <span class="info-box-text"></span>
                 <span class="info-box-number">
-                    
                 </span>
 
                 <div class="progress">
@@ -214,7 +213,7 @@
               </div>
               <!-- /.info-box-content -->
             </div>
-          @endforeach
+          
           <!-- /.box -->
         </div>
         <!-- /.col -->

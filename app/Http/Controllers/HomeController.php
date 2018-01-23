@@ -40,52 +40,14 @@ class HomeController extends Controller
 
         $UserList = DB::table('users')->get();
 
-        $ContUserList = DB::table('votante as v')
-        ->join('users as u','v.id_user','=','u.id')
-        ->select('v.id as IdVotante','u.id as IdUsuario')
-        ->where('v.estado','=','1')
-        ->get();
+        //$VotantesContadorUsuario = DB::table('votante as v')->join('users as u','v.id_user','=','u.id')->count('* as cantidad')->select()->where('estado','!=','0')->groupBy('nombre');       
 
-        $ContadorLeny = 0;
-        $ContadorJose = 0;
-        $ContadorEdwin = 0;
-        $ContadorErika = 0;
-        $ContadorFadys = 0;
-        $ContadorJuan = 0;
+        //foreach($VotantesContadorUsuario as $v){
+        //    dd($v->nombre);
+        //}
 
-        foreach($ContUserList as $Contador){
-            if($Contador->IdUsuario == 1){
-                $ContadorLeny = $ContadorLeny + 1;
-            }
-            elseif($Contador->IdUsuario == 2){
-                $ContadorJose = $ContadorJose + 1;
-            }
-            elseif($Contador->IdUsuario == 3){
-                $ContadorEdwin = $ContadorEdwin + 1;
-            }
-            elseif($Contador->IdUsuario == 4){
-                $ContadorErika = $ContadorErika + 1;
-            }
-            elseif($Contador->IdUsuario == 6){
-                $ContadorFadys = $ContadorFadys + 1;
-            }
-            elseif($Contador->IdUsuario == 7){
-                $ContadorJuan = $ContadorJuan + 1;
-            }
-        }  
+        //$VotantesContadorUsuario = DB::select('call VOTANTESPORDIAPORUSUARIO("2018-01-22")');
 
-        $Contadores =[
-            'Leny'=>$ContadorLeny,
-            'Jose'=>$ContadorJose,
-            'Edwin'=>$ContadorEdwin,
-            'Erika'=>$ContadorErika,
-            'Fadys'=>$ContadorFadys,
-            'Juan'=>$ContadorJuan,
-        ];
-
-        //dd($ContadorJose.'-'. $ContadorLeny.'-'. $ContadorEdwin.'-'. $ContadorErika.'-'. $ContadorFadys.'-'. $ContadorJuan);
-
-        //dd($Contadores);
         return view('admin.index',[
             "lider"=>$ContLider,
             "coordinador"=>$ContCoordinador,
@@ -93,8 +55,7 @@ class HomeController extends Controller
             "totalVotante"=>$ContTotalVotante, 
             'porcentajeVotante'=>$porcentajeVotante,
             'porcentajeTotal'=>$porcentajeTotal, 
-            'usuarios'=>$UserList, 
-            'listaUsuarios' => $Contadores
+            'usuarios'=>$UserList
         ]);
     }
 
