@@ -19,7 +19,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             	<h3>Nuevo Votante</h3>
             	@if (count($errors)>0)
-            	<div class="alert alert-warning">
+            	<div class="alert alert-success">
             		<ul>
             			@foreach($errors->all() as $error)
             			<li>{{$error}}</li>
