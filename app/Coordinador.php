@@ -10,7 +10,7 @@ class Coordinador extends Model
 
     protected $primaryKey='id';
 
-    public $timestamps=false;
+    public $timestamps=true;
 
     protected $fillable=[
     	'cedula','nombre','apellido','direccion','telefono',

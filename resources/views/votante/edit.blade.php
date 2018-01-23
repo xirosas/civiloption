@@ -39,21 +39,31 @@
                         <option value="2">Moto</option>
                         <option value="3">Vehiculo</option>
                         <option value="4">Rechazo</option>
+                        <option value="5">Testigo</option>
                       @elseif($votante->estado==2)
                         <option value="1">Votante</option>
                         <option value="2" selected>Moto</option>
                         <option value="3">Vehiculo</option>
                         <option value="4">Rechazo</option>
+                        <option value="5">Testigo</option>
                       @elseif($votante->estado==3)
                         <option value="1">Votante</option>
                         <option value="2">Moto</option>
                         <option value="3" selected>Vehiculo</option>
                         <option value="4">Rechazo</option>
+                        <option value="5">Testigo</option>
                       @elseif($votante->estado==4)
                         <option value="1">Votante</option>
                         <option value="2">Moto</option>
                         <option value="3">Vehiculo</option>
                         <option value="4" selected>Rechazo</option>
+                        <option value="5">Testigo</option>
+                        @elseif($votante->estado==5)
+                        <option value="1">Votante</option>
+                        <option value="2">Moto</option>
+                        <option value="3">Vehiculo</option>
+                        <option value="4">Rechazo</option>
+                        <option value="5" selected>Testigo</option>
                       @endif
                   </select> 
                 </div>
@@ -62,9 +72,9 @@
                   <select name="id_lider" class="form-control">
                       @foreach($lideres as $lid)
                         @if($lid->id==$votante->id_lider)
-                          <option value="{{ $lid->id }}" selected>{{ $lid->cedula }} - {{ $lid->nombre }} {{ $lid->apellido }}</option>
+                          <option value="{{ $lid->id }}" selected>{{ $lid->nombre }} {{ $lid->apellido }} - {{ $lid->cedula }}</option>
                         @else
-                          <option value="{{ $lid->id }}">{{ $lid->cedula }} - {{ $lid->nombre }} {{ $lid->apellido }}</option>
+                          <option value="{{ $lid->id }}">{{ $lid->nombre }} {{ $lid->apellido }} - {{ $lid->cedula }}</option>
                         @endif
                       @endforeach
                   </select> 

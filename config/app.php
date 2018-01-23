@@ -232,6 +232,7 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
 
     ],
 

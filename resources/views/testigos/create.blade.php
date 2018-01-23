@@ -3,13 +3,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Administración de Votantes
-        <small>Aquí podrá agregar, listar, modificar y eliminar una o varios Votantes a la Base de datos.</small>
+        Administración de Testigos
+        <small>Aquí podrá agregar, listar, modificar y eliminar una o varios Testigos a la Base de datos.</small>
       </h1>
       <p>Cantidad Ingresada - {{$contador}}</p>
       <ol class="breadcrumb">
         <li><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>
-        <li class="active">Votantes</li>
+        <li class="active">Testigos</li>
       </ol>
     </section>
 
@@ -17,7 +17,7 @@
     <section class="content container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            	<h3>Nuevo Votante</h3>
+            	<h3>Nuevo Testigo</h3>
             	@if (count($errors)>0)
             	<div class="alert alert-danger">
             		<ul>
@@ -27,7 +27,7 @@
             		</ul>
             	</div>
             	@endif
-                {!!Form::open(array('url'=>'votante','method'=>'POST','autocomplete'=>'on'))!!}
+                {!!Form::open(array('url'=>'testigo','method'=>'POST','autocomplete'=>'off'))!!}
                 {!!Form::token()!!}
             	<div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -36,40 +36,14 @@
                             <input type="number" name="cedula" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="id_lider">Lider</label>
-                            <select name="id_lider" id="id_lider" class="form-control">
-                                @foreach($lideres as $lid)
-                                  <option value="{{ $lid->id }}" @if(old('id_lider') == $lid->id) {{ 'selected' }} @endif>
-                                    {{ $lid->nombre }} {{ $lid->apellido }} - {{ $lid->cedula }}
+                            <label for="id_coordinador">Coordinador</label>
+                            <select name="id_coordinador" id="id_coordinador" class="form-control">
+                                @foreach($coordinadores as $coor)
+                                  <option value="{{ $coor->id }}" @if(old('id_coordinador') == $coor->id) {{ 'selected' }} @endif>
+                                    {{ $coor->nombre }} {{ $coor->apellido }} - {{ $coor->cedula }}
                                   </option>
                                 @endforeach
                             </select> 
-                        </div>
-                        <div class="form-group">
-                            <label for="estado">Tipo de Votante</label>
-                            <select name="estado" id="estado" class="form-control">
-                               <option value="1" selected>Votante</option>
-                               <option value="2">Moto</option>
-                               <option value="3">Vehículo</option>
-                               <option value="4">Rechazado</option>
-                               <option value="5">Testigo</option>
-                           </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="id_barrio">Barrio</label>
-                          <select name="id_barrio" class="form-control">
-                              @foreach($barrios as $bar)
-                                <option value="{{ $bar->id }}">
-                                    @if($bar->tipo==1)
-                                      {{ $bar->nombre }} - Barrio 
-                                    @elseif($bar->tipo==2)
-                                      {{ $bar->nombre }} - Corregimiento 
-                                    @elseif($bar->tipo==3)
-                                      {{ $bar->nombre }} - Vereda
-                                    @endif
-                                  </option>
-                              @endforeach
-                          </select> 
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -88,6 +62,10 @@
                                 <option value="{{ $pue->id }}">{{ $pue->nombrepuesto }}</option>
                               @endforeach
                           </select> 
+                        </div>
+                        <div class="form-group">
+                          <label for="mesa">Mesa</label>
+                          <input type="number" name="mesa" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="telefono">Telefono</label>

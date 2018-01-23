@@ -10,7 +10,7 @@ class Votante extends Model
 
     protected $primaryKey='id';
 
-    public $timestamps=false;
+    public $timestamps=true;
 
     protected $fillable=[
     	'cedula','nombre','apellido','id_puesto','telefono','id_lider', 'id_user','estado',

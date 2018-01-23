@@ -85,7 +85,7 @@ class HomeController extends Controller
 
         //dd($ContadorJose.'-'. $ContadorLeny.'-'. $ContadorEdwin.'-'. $ContadorErika.'-'. $ContadorFadys.'-'. $ContadorJuan);
 
-        dd($Contadores);
+        //dd($Contadores);
         return view('admin.index',[
             "lider"=>$ContLider,
             "coordinador"=>$ContCoordinador,
@@ -98,8 +98,9 @@ class HomeController extends Controller
         ]);
     }
 
-    private function data(){
-
-    }
+    //public function data(){
+    //    $Dias=DB::table('votante as v')
+    //    join('','','')->;
+    //}
 
 }

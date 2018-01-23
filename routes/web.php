@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/admin', 'HomeController@index')->name('admin');
 
 Route::resource('coordinador','CoordinadorController');
+Route::resource('filtroCoordinador','FiltroCoordinadorController');
 Route::resource('lider','LiderController');
 Route::resource('votante','VotanteController');
 //Route::resource('admin','AdminController');

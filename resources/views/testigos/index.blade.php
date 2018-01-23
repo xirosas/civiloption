@@ -3,13 +3,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Administración de Votantes
-        <small>Aquí podrá agregar, listar, modificar y eliminar una o varios Votantes a la Base de datos.</small>
+        Administración de Testigos
+        <small>Aquí podrá agregar, listar, modificar y eliminar una o varios Testigos a la Base de datos.</small>
       </h1>
       <p>Cantidad Ingresada - {{$contador}}</p>
       <ol class="breadcrumb">
         <li><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>
-        <li class="active"><a href="{{ url('/votante') }}">Votantes</a></li>
+        <li class="active"><a href="{{ url('/testigo') }}">Testigos</a></li>
       </ol>
     </section>
 
@@ -17,9 +17,9 @@
     <section class="content container-fluid">
       <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-          <h3>Listado de Votantes       <span class="pull-right"><a href="{{ url('/votante/create') }}"> <button class="btn btn-success"data-toggle="tooltip" data-placement="top" title="Crea un nuevo Votante">Nuevo</button></a></span></h3>
+          <h3>Listado de Testigos       <span class="pull-right"><a href="{{ url('/testigo/create') }}"> <button class="btn btn-success"data-toggle="tooltip" data-placement="top" title="Crea un nuevo testigo">Nuevo</button></a></span></h3>
           
-          @include('votante.search')
+          @include('testigo.search')
         </div>
       </div>
       <div class="row">
@@ -31,33 +31,25 @@
                 <th scope="col">Nombre <i class="fa fa-fw fa-sort pull-right"></i></th>
                 <th scope="col">Apellido <i class="fa fa-fw fa-sort pull-right"></i></th>
                 <th scope="col">Telefono <i class="fa fa-fw fa-sort pull-right"></i></th>
+                <th scope="col">Barrio <i class="fa fa-fw fa-sort pull-right"></i></th>
                 <th scope="col">Puesto <i class="fa fa-fw fa-sort pull-right"></i></th>
-                <th scope="col">Lider <i class="fa fa-fw fa-sort pull-right"></i></th>
-                <th scope="col">Tipo <i class="fa fa-fw fa-sort pull-right"></i></th>
+                <th scope="col">Coordinador <i class="fa fa-fw fa-sort pull-right"></i></th>
+                <th scope="col">Mesa <i class="fa fa-fw fa-sort pull-right"></i></th>
                 <th><i class="fa fa-cogs"></i></th>
               </thead>
-              @foreach($votantes as $result)
+              @foreach($testigos as $result)
               <tr>
                 <td scope="row">{{ $result->cedula }}</td>
                 <td>{{ $result->nombre }}</td>
                 <td>{{ $result->apellido }}</td>
                 <td>{{ $result->telefono }}</td>
+                <td>{{ $result->nombarrio }}</td>
                 <td>{{ $result->puesto }}</td>
-                <td>{{ $result->nomlider }} {{ $result->apelider }}</td>
-                  @if($result->estado==1)
-                    <td style="background: green;">ACTIVO</td>
-                  @elseif($result->estado==2)
-                    <td style="background: yellow;">MOTO</td>
-                  @elseif($result->estado==3)
-                    <td style="background: blue;">VEHICULO</td>
-                  @elseif($result->estado==4)
-                    <td style="background: red;">RECHAZADO</td>
-                  @elseif($result->estado==5)
-                    <td style="background: purple;">TESTIGO</td>
-                  @endif
+                <td>{{ $result->nomcoor }} {{ $result->apecoor }}</td>
+                <td>{{ $result->mesa }}</td>
                 <td>
                   <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                    <a href="{{ URL::action('VotanteController@edit',$result->id) }}">
+                    <a href="{{ URL::action('TestigoController@edit',$result->id) }}">
                       <button class="btn btn-info btn-xs btn-block"  data-toggle="tooltip" data-placement="top" title="Editar">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                       </button>
