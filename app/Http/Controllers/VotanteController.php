@@ -53,6 +53,7 @@ class VotanteController extends Controller
                   ->select('l.nombre as nombre','l.apellido as apellido','l.cedula as cedula')
                   ->where('v.cedula','=',$request->get('cedula'))
                   ->first();
+                  
 
     	$validator = Validator::make($request->all(), [
             'cedula' => 'required|unique:votante',
