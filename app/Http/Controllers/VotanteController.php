@@ -52,12 +52,12 @@ class VotanteController extends Controller
                   ->join('lider as l','v.id_lider','=','l.id')
                   ->select('l.nombre as nombre','l.apellido as apellido','l.cedula as cedula')
                   ->where('v.cedula','=',$request->get('cedula'))
-                  ->get();
+                  ->first();
 
     	$validator = Validator::make($request->all(), [
             'cedula' => 'required|unique:votante',
         ],[ 
-            'cedula.unique'=>'Esta cedula '.$request->get('cedula').' esta siendo usada por el lider '. $result[0]->nombre .' '. $result[0]->apellido .' - '.$result[0]->cedula .'.',
+            'cedula.unique'=>'Esta cedula '.$request->get('cedula').' esta siendo usada por el lider '. $result->nombre .' '. $result->apellido .' - '.$result->cedula .'.',
         ]);
         if ($validator->fails()) {
             return redirect('votante/create')

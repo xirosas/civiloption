@@ -22,7 +22,7 @@ public function totalVotantes()
             ->join('barrio as b','v.id_barrio','=','b.id')
             ->join('puesto as p','v.id_puesto','=','p.id')
             ->select('v.id','v.cedula','v.nombre','v.apellido','v.telefono','l.nombre as nomlider','l.apellido as apelider','v.estado','u.name as nomusuario','u.lastname as apeusuario','b.nombre as nombarrio','p.nombrepuesto as puesto')
-            ->where('v.estado','=','1')
+            ->where('v.estado','!=','0')
             ->orderBy('v.cedula','asc')
             ->get();
         $date = date('Y-m-d');
