@@ -47,26 +47,19 @@ class VotanteController extends Controller
     	return view('votante.create',["contador"=>$count,"lideres"=>$lideres,"barrios"=>$barrios,"puestos"=>$puestos]);
     }
 
-    private function message(VotanteFormRequest $request){
+    public function store (VotanteFormRequest $request){ 
+        
+        //dd(messageBox($request->get('cedula')));
         $result = DB::table('votante as v')
                   ->join('lider as l','v.id_lider','=','l.id')
                   ->select('l.nombre as nombre','l.apellido as apellido','l.cedula as cedula')
                   ->where('v.cedula','=',$request->get('cedula'))
                   ->first();
-        return 'Esta cedula '.$request->get('cedula').' esta siendo usada por el lider '. $result->nombre .' '. $result->apellido .' - '.$result->cedula .'.';
-    }
-
-    public function store (VotanteFormRequest $request){ 
-        
-        $message = message($request);
-
-
-
 
     	$validator = Validator::make($request->all(), [
             'cedula' => 'required|unique:votante',
         ],[ 
-            'cedula.unique'=> trim($message) != '' ? $message : 'Esta cedula está duplicada',
+            'cedula.unique'=> (is_null($result)) ? 'Cedula no existe' : 'Esta cedula '.$request->get('cedula').' esta siendo usada por el lider '. $result->nombre .' '. $result->apellido .' - '.$result->cedula .'.',
         ]);
         if ($validator->fails()) {
             return redirect('votante/create')
