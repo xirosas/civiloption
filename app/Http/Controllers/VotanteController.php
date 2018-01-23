@@ -47,11 +47,17 @@ class VotanteController extends Controller
     	return view('votante.create',["contador"=>$count,"lideres"=>$lideres,"barrios"=>$barrios,"puestos"=>$puestos]);
     }
 
-    public function store (VotanteFormRequest $request){
+    public function store (VotanteFormRequest $request){ 
+        $result = DB::table('votante as v')
+                  ->join('lider as l','v.id_lider','=','l.id')
+                  ->select('l.nombre as nombre','l.apellido as apellido','l.cedula as cedula')
+                  ->where('v.cedula','=',$request->get('cedula'))
+                  ->get();
+
     	$validator = Validator::make($request->all(), [
             'cedula' => 'required|unique:votante',
         ],[ 
-            'cedula.unique'=>'Esta cedula '.$request->get('cedula').' esta siendo usada por otro lider',
+            'cedula.unique'=>'Esta cedula '.$request->get('cedula').' esta siendo usada por el lider '. $result[0]->nombre .' '. $result[0]->apellido .' - '.$result[0]->cedula .'.',
         ]);
         if ($validator->fails()) {
             return redirect('votante/create')

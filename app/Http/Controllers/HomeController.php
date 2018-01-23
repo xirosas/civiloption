@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use CivilOption\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
 
 class HomeController extends Controller
 {
