@@ -85,7 +85,7 @@
               @endforeach
             </table>
           </div>
-          {{ $lideres->render() }}
+          {{ $lideres->appends(['searchText' => $searchText])->render() }}
         </div>
       </div>
     </section>

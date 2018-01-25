@@ -74,7 +74,7 @@
               @endforeach
             </table>
           </div>
-          {{ $votantes->render() }}
+          {{ $votantes->appends(['searchText' => $searchText])->render() }}
         </div>
       </div>
     </section>

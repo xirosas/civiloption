@@ -36,9 +36,14 @@ class HomeController extends Controller
         
         $ContVotante = DB::table('votante')->where('estado','=','1')->count();
         
-        $porcentajeVotante = ($ContVotante*100)/$ContTotalVotante . '%';
+        if($ContTotalVotante != 0 || $ContVotante != 0){
+            $porcentajeVotante = ($ContVotante*100)/$ContTotalVotante . '%';
+            $porcentajeTotal = ($ContTotalVotante*100)/189719 . '%';
+        }else{
+            $porcentajeVotante = 0;
+            $porcentajeTotal = 0;
+        }
         
-        $porcentajeTotal = ($ContTotalVotante*100)/189719 . '%';
 
         $UserList = DB::table('users')->get();
 

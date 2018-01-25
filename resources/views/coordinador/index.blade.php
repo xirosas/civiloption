@@ -49,7 +49,7 @@
               @endforeach
             </table>
           </div>
-          {{ $coordinadores->render() }}
+          {{ $coordinadores->appends(['searchText' => $searchText])->render() }}
         </div>
       </div>
     </section>
