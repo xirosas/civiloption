@@ -41,7 +41,7 @@
       <section class="content container-fluid">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3>VoteControl - #MileJarava - 102 - Listado de Votantes de {{ $lider->nombre }} {{ $lider->apellido }}
+            <h3>VoteControl - #MileJarava - 102 -Listado de Coordinadores 
           </h3>
             <div class="date">Fecha: {{ $date }}</div>
           </div>
@@ -55,8 +55,6 @@
                   <th scope="col">Cedula</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Telefono</th>
-                  <th scope="col">Lider</th>
-                  <th scope="col">Coordinador</th>
                 </thead>
                 @foreach($data as $result)
                 <tr>
@@ -64,8 +62,6 @@
                   <td scope="row">{{ $result->cedula }}</td>
                   <td>{{ $result->nombre }} {{ $result->apellido }}</td>
                   <td>{{ $result->telefono }}</td>
-                  <td>{{ $result->nomlider }} {{ $result->apelider }}</td>
-                  <td>{{ $result->nomcoor }} {{ $result->apecoor }}</td>
                 </tr>
                 @endforeach
               </table>

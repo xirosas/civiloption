@@ -127,17 +127,18 @@
         <li><a href="{{ url('/lider') }}"><i class="fa fa-coffee"></i> <span>Lideres</span></a></li>
         <li><a href="{{ url('/votante') }}"><i class="fa fa-ticket"></i> <span>Votantes</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-tree"></i> <span>Reportes</span>
+          <a href="#"><i class="fa fa-print"></i> <span>Imprimir Listas</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('/reporte') }}">Filtro Coordinadores</a></li>
-            <li><a href="{{ url('/reporte') }}">Filtro Lideres</a></li>
-            <li><a href="{{ url('/reporte') }}">Filtro Barrios</a></li>
-            <li><a href="{{ url('/reporte') }}">Filtro Mesas</a></li>
-            <li><a href="{{ url('/reporte') }}">Filtro Votos</a></li>
+            <li><a href="{{ url('/pdfcoordinador') }}">Coordinadores</a></li>
+            <li><a href="{{ url('/pdflider') }}">Lideres</a></li>
+            <li><a href="{{ url('/pdf') }}">Votantes</a></li>
+            <li><a href="{{ url('/pdfmoto') }}">Motos</a></li>
+            <li><a href="{{ url('/pdfcarro') }}">Carros</a></li>
+
           </ul>
         </li>
         

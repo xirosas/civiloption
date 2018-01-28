@@ -28,4 +28,22 @@ Route::resource('votante','VotanteController');
 Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@update_avatar');
 
-Route::get('pdf', 'PdfController@totalVotantes');
+Route::get('pdf/{id}','PdfController@totalVotantes');
+Route::resource('pdf', 'PdfController');
+
+Route::get('pdfmoto/{id}','PdfMotoController@totalVotantes');
+Route::resource('pdfmoto', 'PdfMotoController');
+
+Route::get('pdfcarro/{id}','PdfCarroController@totalVotantes');
+Route::resource('pdfcarro', 'PdfCarroController');
+
+Route::get('pdflider/{id}','PdfLiderController@totalVotantes');
+Route::resource('pdflider', 'PdfLiderController');
+
+Route::get('pdfcoordinador/{id}','PdfCoordinadorController@totalVotantes');
+Route::resource('pdfcoordinador', 'PdfCoordinadorController');
+
+Route::post('/checkcedulavotante',['uses'=>'ManageController@checkCedulaVotante']);
+Route::post('/checkcedulalider',['uses'=>'ManageController@checkCedulaLider']);
+Route::post('/checkcedulacoordinador',['uses'=>'ManageController@checkCedulaCoordinador']);
+

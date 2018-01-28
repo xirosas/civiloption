@@ -41,7 +41,7 @@
       <section class="content container-fluid">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3>VoteControl - #MileJarava - 102 - Listado de Votantes de {{ $lider->nombre }} {{ $lider->apellido }}
+            <h3>VoteControl - #MileJarava - 102 -Listado de Votantes 
           </h3>
             <div class="date">Fecha: {{ $date }}</div>
           </div>
@@ -51,7 +51,6 @@
             <div class="table-responsive">
               <table class="table table-striped table-bordered table-condensed table-hover">
                 <thead class="thead-dark">
-                  <th scope="col">#</th>
                   <th scope="col">Cedula</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Telefono</th>
@@ -60,7 +59,6 @@
                 </thead>
                 @foreach($data as $result)
                 <tr>
-                  <td scope="row">{{ $loop->iteration }}</td>
                   <td scope="row">{{ $result->cedula }}</td>
                   <td>{{ $result->nombre }} {{ $result->apellido }}</td>
                   <td>{{ $result->telefono }}</td>
