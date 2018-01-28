@@ -33,7 +33,11 @@ class VotanteController extends Controller
     		->orderBy('v.cedula','asc')
     		->paginate(15);
     		$count = DB::table('votante')->where('estado','=','1')->count();
-    		return view('votante.index',["votantes"=>$votantes,"searchText"=>$query,"contador"=>$count]);
+    		return view('votante.index',[
+                "votantes"=>$votantes,
+                "searchText"=>$query,
+                "contador"=>$count
+            ]);
     	}
     }
 
@@ -46,7 +50,7 @@ class VotanteController extends Controller
     }
 
     public function store (VotanteFormRequest $request){
-    	$votante1=new votante;
+        $votante1=new votante;
     	$votante1->cedula=$request->get('cedula');
     	$votante1->nombre=$request->get('nombre');
     	$votante1->apellido=$request->get('apellido');

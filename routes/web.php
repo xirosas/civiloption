@@ -28,3 +28,6 @@ Route::get('profile', 'UserController@profile');
 Route::post('profile', 'UserController@update_avatar');
 
 Route::get('pdf', 'PdfController@totalVotantes');
+
+Route::get('search',array('as'=>'search','uses'=>'SearchController@search'));
+Route::get('autocomplete',array('as'=>'autocomplete','uses'=>'SearchController@autocomplete'));

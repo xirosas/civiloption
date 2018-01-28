@@ -27,13 +27,13 @@
             		</ul>
             	</div>
             	@endif
-                {!!Form::open(array('url'=>'votante','method'=>'POST','autocomplete'=>'off'))!!}
+                {!!Form::open(array('url'=>'votante','method'=>'POST','autocomplete'=>'on'))!!}
                 {!!Form::token()!!}
             	<div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group">
                             <label for="cedula">Cedula</label>
-                            <input type="number" name="cedula" class="form-control">
+                            <input type="number" name="cedula" class="typeahead form-control">
                         </div>
                         <div class="form-group">
                             <label for="id_lider">Lider</label>

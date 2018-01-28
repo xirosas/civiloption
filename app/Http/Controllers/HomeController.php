@@ -85,7 +85,7 @@ class HomeController extends Controller
 
         //dd($ContadorJose.'-'. $ContadorLeny.'-'. $ContadorEdwin.'-'. $ContadorErika.'-'. $ContadorFadys.'-'. $ContadorJuan);
 
-        dd($Contadores);
+        //dd($Contadores);
         return view('admin.index',[
             "lider"=>$ContLider,
             "coordinador"=>$ContCoordinador,

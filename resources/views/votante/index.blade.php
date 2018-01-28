@@ -26,7 +26,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="table-responsive">
             <table class="table table-striped table-bordered table-condensed table-hover">
-              <thead class="thead-dark">
+              <thead>
                 <th scope="col">Cedula <i class="fa fa-fw fa-sort pull-right"></i></th>
                 <th scope="col">Nombre <i class="fa fa-fw fa-sort pull-right"></i></th>
                 <th scope="col">Apellido <i class="fa fa-fw fa-sort pull-right"></i></th>
@@ -39,34 +39,32 @@
               </thead>
               @foreach($votantes as $result)
               <tr>
-                <td scope="row">{{ $result->cedula }}</td>
-                <td>{{ $result->nombre }}</td>
-                <td>{{ $result->apellido }}</td>
-                <td>{{ $result->telefono }}</td>
-                <td>{{ $result->nombarrio }}</td>
-                <td>{{ $result->puesto }}</td>
-                <td>{{ $result->nomlider }} {{ $result->apelider }}</td>
+                <td class="align-middle" scope="row">{{ $result->cedula }}</td>
+                <td class="align-middle">{{ $result->nombre }}</td>
+                <td class="align-middle">{{ $result->apellido }}</td>
+                <td class="align-middle">{{ $result->telefono }}</td>
+                <td class="align-middle">{{ $result->nombarrio }}</td>
+                <td class="align-middle">{{ $result->puesto }}</td>
+                <td class="align-middle">{{ $result->nomlider }} {{ $result->apelider }}</td>
                   @if($result->estado==1)
-                    <td style="background: green;">ACTIVO</td>
+                    <td style="background: green; color:white;" class="text-center align-middle">ACTIVO</td>
                   @elseif($result->estado==2)
-                    <td style="background: yellow;">MOTO</td>
+                    <td style="background: yellow;" class="text-center align-middle ">MOTO</td>
                   @elseif($result->estado==3)
-                    <td style="background: blue;">VEHICULO</td>
+                    <td style="background: blue; color:white;" class="text-center align-middle" >VEHICULO</td>
                   @elseif($result->estado==4)
-                    <td style="background: red;">RECHAZADO</td>
+                    <td style="background: red; color:white;" class="text-center align-middle">RECHAZADO</td>
                   @endif
                 <td>
-                  <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                    <a href="{{ URL::action('VotanteController@edit',$result->id) }}">
-                      <button class="btn btn-info btn-xs btn-block"  data-toggle="tooltip" data-placement="top" title="Editar">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      </button>
-                    </a>
-                    <a href="" data-target="#modal-delete-{{ $result->id }}" data-toggle="modal">
-                      <button class="btn btn-danger btn-xs btn-block" data-toggle="tooltip" data-placement="top" title="Eliminar">
-                        <i class="fa fa-trash-o" aria-hidden="true" ></i>
-                      </button>
-                    </a>
+                  <div class="btn-toolbar" role="toolbar" aria-label="...">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button class="btn btn-info btn-xs"  data-toggle="tooltip" data-placement="top" title="Editar">
+                          <a href="{{ URL::action('VotanteController@edit',$result->id) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        </button>
+                        <button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                          <a href="" data-target="#modal-delete-{{ $result->id }}" data-toggle="modal"><i class="fa fa-trash-o" aria-hidden="true" ></i></a>
+                        </button>
+                    </div>
                   </div>
                 </td>
               </tr>
