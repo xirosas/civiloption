@@ -42,6 +42,30 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-motorcycle"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Motos</span>
+              <span class="info-box-number">{{ $moto }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-car"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Vehiculos</span>
+              <span class="info-box-number">{{ $carro }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
 
         <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
@@ -59,7 +83,18 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-        
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-trash"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Rechazos</span>
+              <span class="info-box-number">{{ $rechazo }}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
       <!-- /.row -->
 
       <div class="row">
@@ -80,7 +115,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <p class="text-center">
-                    <strong>Ingresos: {{$votante+$lider+$coordinador}} | 01 Ene, 2018 - 30 Ene, 2018</strong>
+                    <strong>Ingresos: {{$votante+$lider+$coordinador+$moto+$carro+$rechazo}} | 01 Ene, 2018 - 30 Ene, 2018</strong>
                   </p>
 
                   <div class="chart">

@@ -28,13 +28,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $ContLider = DB::table('lider')->where('estado','=','1')->count();
+        $ContLider = DB::table('lider')->where('estado','!=','0')->count();
         
-        $ContCoordinador = DB::table('coordinador')->where('estado','=','1')->count();
+        $ContCoordinador = DB::table('coordinador')->where('estado','!=','0')->count();
         
         $ContTotalVotante = DB::table('votante')->count();
         
         $ContVotante = DB::table('votante')->where('estado','=','1')->count();
+
+        $ContMoto = DB::table('votante')->where('estado','=','2')->count();
+
+        $ContVehiculo = DB::table('votante')->where('estado','=','3')->count();
+        $ContRechazos = DB::table('votante')->where('estado','=','0')->orwhere('estado','=','4')->count();
         
         if($ContTotalVotante != 0 || $ContVotante != 0){
             $porcentajeVotante = ($ContVotante*100)/$ContTotalVotante . '%';
@@ -62,7 +67,10 @@ class HomeController extends Controller
             "totalVotante"=>$ContTotalVotante, 
             'porcentajeVotante'=>$porcentajeVotante,
             'porcentajeTotal'=>$porcentajeTotal, 
-            'usuarios'=>$UserList
+            'usuarios'=>$UserList,
+            'moto'=>$ContMoto,
+            'carro'=>$ContVehiculo,
+            'rechazo'=>$ContRechazos
         ]);
     }
 

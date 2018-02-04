@@ -11,7 +11,7 @@ Use CivilOption\Coordinador;
 Use CivilOption\Votante;
 
 
-class PdfController extends Controller
+class PdfMotoController extends Controller
 {
 
 	public function totalVotantes($id) 
@@ -24,8 +24,7 @@ class PdfController extends Controller
             ->join('barrio as b','v.id_barrio','=','b.id')
             ->join('puesto as p','v.id_puesto','=','p.id')
             ->select('v.id','v.cedula','v.nombre','v.apellido','v.telefono','l.nombre as nomlider','l.apellido as apelider','v.estado','u.name as nomusuario','u.lastname as apeusuario','b.nombre as nombarrio','p.nombrepuesto as puesto','c.nombre as nomcoor', 'c.apellido as apecoor')
-            ->where('v.estado','=','1')
-            ->where('c.id','=',35)
+            ->where('v.estado','=','2')
             ->orderBy('c.nombre','asc')
             ->orderBy('l.nombre','asc')
             ->orderBy('v.nombre','asc')
@@ -33,7 +32,7 @@ class PdfController extends Controller
         $dataLider = DB::table('lider')->where('id','=',$liderNum)->first();
         $date = date('Y-m-d');
         $invoice = "2222";
-        $view = view('pdf.totalVotantes',[ 	
+        $view = view('pdfmoto.totalVotantes',[ 	
         	"data"=>$data,
             "date"=>$date,    	
             "invoice"=>$invoice,
@@ -46,13 +45,16 @@ class PdfController extends Controller
     public function index(Request $request){
         $query=trim($request->get('searchText'));
         $lideres = DB::table('lider as l')
-        ->where('l.cedula','LIKE','%'.$query.'%')
-        ->orwhere('l.cedula','LIKE','%'.$query.'%')
-        ->where('l.estado','!=','0')
         ->orderBy('l.nombre','asc')
         ->orderBy('l.apellido','asc')
         ->paginate(20);
-        return view('pdf.index',[
+        $lideresMoto = DB::table('votante as v')
+        ->join('lider as l','v.id_lider','=','l.id')
+        ->select('l.nombre as Nombre','l.apellido as Apellido' ,DB::raw('count(*) as Cantidad'))
+        ->where('v.estado','=','3')
+        ->groupBy('l.nombre', 'l.apellido');
+
+        return view('pdfmoto.index',[
             'lideres' => $lideres,
             "searchText"=> $query,
         ]);
